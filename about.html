@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocktim's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 190vh;
+        }
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1C1D22;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            left: 4px;
+            position: relative;
+            /* border: 2px solid red; */
+        }
+
+        h1 span {
+            display: flex;
+            font-size: 5rem;
+
+        }
+
+        h1:after {
+            top: 5px;
+            content: "";
+            display: block;
+            width: 70%;
+            height: 6px;
+            background-color: #A7996C;
+            margin: 10px auto 0;
+            position: absolute;
+            bottom: 0;
+            /* Positioned relative to the h1 element */
+            right: 1px;
+            /* transform: translateX(-50%); Adjust to center properly */
+        }
+
+        h2 {
+            /* display: flex; */
+            /* flex-direction: row; */
+            font-size: 23px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: #A7996C;
+            letter-spacing: 2px;
+            position: absolute;
+            /* border: 2px solid green; */
+            width: 26vh;
+            top: 58%;
+            right: 38%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+        }
+
+        .scrol {
+            height: 23px;
+            width: 23px;
+            background-color: red; /* Change to your desired color */
+            display: flex;
+            position: fixed;
+            right: 45px;
+            bottom: 5%; /* Adjusted bottom value for better visibility */
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home-container">
+        <h1>Hi Im <span>Jayesh </span></h1>
+        <h2>A Frontend <span>Developer</span></h2>
+    </div>
+    <div class="scrol" id="scrollIcon">&#8595;</div>
+    <script>
+        document.getElementById('scrollIcon').addEventListener('click', function () {
+            // Adjust the destination (scrollTop) as needed
+            const destination = 1000; // Change to your desired destination
+            const duration = 1000; // Change to your desired duration in milliseconds
+
+            const start = window.pageYOffset;
+            const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+            function scroll() {
+                const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+                const progress = Math.min(1, (currentTime - startTime) / duration);
+                const newPosition = start + progress * (destination - start);
+
+                window.scrollTo(0, newPosition);
+
+                if (progress < 1) {
+                    requestAnimationFrame(scroll);
+                }
+            }
+
+            scroll();
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

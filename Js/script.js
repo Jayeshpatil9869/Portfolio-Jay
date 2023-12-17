@@ -334,3 +334,38 @@ var typed = new Typed(".text", {
 
 
 
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollDownLink = document.querySelector('.section-down-arrow');
+
+  if (scrollDownLink) {
+      scrollDownLink.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const destination = 725; // Change to your desired destination
+          const duration = 1000; // Change to your desired duration in milliseconds
+
+          const start = window.pageYOffset;
+          const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+          function scroll() {
+              const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+              const progress = Math.min(1, (currentTime - startTime) / duration);
+              const newPosition = start + progress * (destination - start);
+
+              window.scrollTo(0, newPosition);
+
+              if (progress < 1) {
+                  requestAnimationFrame(scroll);
+              }
+          }
+
+          scroll();
+      });
+  }
+});
