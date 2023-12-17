@@ -1,0 +1,539 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+:root {
+  --Tcolor: #eee;
+  --Bcolor: crimson;
+}
+
+html {
+  height: 320vh;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  font-size: 10px;
+}
+
+canvas {
+  background-color: #000;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--Tcolor);
+}
+
+header {
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 120rem;
+  width: 100%; /* Updated width */
+  margin: 0 auto;
+}
+
+
+.menu-toggle {
+  position: fixed;
+  top: 2.5rem;
+  right: 2.5rem;
+  color: var(--Bcolor);
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+}
+
+nav {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  background-color: transparent;
+  width: 90%;
+  height: 60px;
+  position: absolute;
+}
+/* Add this style for the scrolled state */
+nav.scrolled {
+  background-color: rgb(255, 255, 255);
+}
+
+.brand {
+  font-size: 33px;
+  font-weight: 300;
+  transform: translateX(-100rem);
+  animation: slideIn 0.5s forwards;
+}
+
+.brand span {
+  color: var(--Bcolor);
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  transform: translateX(100rem);
+  animation: slideIn 0.5s forwards;
+}
+
+nav ul li:nth-child(1) {
+  animation-delay: 0s;
+}
+
+nav ul li:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+nav ul li:nth-child(3) {
+  animation-delay: 1s;
+}
+
+nav ul li:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+nav ul li a {
+  padding: 1rem 0;
+  margin: 0 3rem;
+  position: relative;
+  letter-spacing: 2px;
+  color: var(--Tcolor);
+  /* Set the color of the navigation links */
+}
+
+nav ul li a:last-child {
+  margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--Bcolor);
+  left: 0;
+  transform: scaleX(0);
+  transition: all 0.5s;
+}
+
+nav ul li a::before {
+  top: 0;
+  transform-origin: left;
+}
+
+nav ul li a::after {
+  bottom: 0;
+  transform-origin: right;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: opacity 650ms;
+  transform: scale(0);
+  opacity: 0;
+  display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes slideIn {
+  from {
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.home-content h3,
+h1,
+p,
+div {
+  padding: 6px;
+}
+.home-content {
+  max-width: 600px;
+  color: white;
+  position: absolute;
+  top: 50%; /* Adjusted to 50% */
+  left: 50%; /* Centering */
+  transform: translate(-50%, -50%);
+  list-style: none;
+  /* border: 2px solid rgb(0, 255, 34); */
+  position: absolute;
+  text-align: center;
+}
+
+.Itme {
+  font-size: 26px;
+  transform: translateX(-100rem);
+  animation: slideIn 0.5s forwards;
+  animation-delay: 0s;
+}
+
+.home-content h1 {
+  font-size: 40px;
+  font-weight: 700;
+  /* margin: -3px -3px; */
+  transform: translateX(-100rem);
+  animation: slideIn 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+.home-content .Ai {
+  font-size: 30px;
+  font-weight: 700;
+  transform: translateX(-100rem);
+  animation: slideIn 0.5s forwards;
+    animation-delay: 0s;
+  animation-delay: 1s;
+}
+
+.home-content p {
+  font-size: 20px;
+  margin-top: 2px;
+  text-transform: capitalize;
+  transform: translateX(-100rem);
+  animation: slideIn 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+.text {
+  margin-top: 30px;
+}
+
+.home-content h3 span {
+  color: var(--Bcolor);
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.social-buttons {
+  border-radius: 5px;
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -10px;
+}
+.social-buttons__button {
+  margin: 5px;
+}
+.social-button {
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+}
+.social-icons {
+  width: 100%;
+}
+.social-button__inner {
+  font-size: 2.3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: 100%;
+  /* background: #000000; */
+  text-align: center;
+}
+.social-button i,
+.social-button svg {
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+.social-button i {
+  font-size: 28px;
+}
+.social-button svg {
+  height: 40%;
+  width: 40%;
+}
+.social-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  transition: 0.3s;
+}
+.social-button:focus,
+.social-button:hover {
+  color: #000000;
+  text-decoration: none;
+}
+.social-button:focus::after,
+.social-button:hover::after {
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+}
+
+.social-button--linkedin {
+  color: #00a6ff;
+}
+.social-button--linkedin::after {
+  background: #0077b5;
+}
+.social-button--github {
+  color: #b98aff;
+}
+.social-button--github::after {
+  background: #6e5494;
+}
+.social-button--codepen {
+  color: #e6e6e6;
+}
+.social-button--codepen::after {
+  background: #535353;
+}
+
+.social-button--instagram {
+  color: #fc113c;
+}
+.social-button--instagram::after {
+  background: #e4405f;
+}
+
+.social-button--youtube {
+  color: #ff0000; /* You can change the color as needed */
+}
+
+.social-button--youtube::after {
+  background: #ff0000; /* You can change the background color as needed */
+}
+.social-buttons__button {
+  margin: 5px;
+  transform: translateX(-100rem);
+  animation: slideIn 0.1s forwards;
+}
+
+/* Adjust animation delay for each button */
+.social-buttons__button:nth-child(1) {
+  animation-delay: 2s;
+}
+
+.social-buttons__button:nth-child(2) {
+  animation-delay: 2.5s;
+}
+
+.social-buttons__button:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.social-buttons__button:nth-child(4) {
+  animation-delay: 3.5s;
+}
+
+.social-buttons__button:nth-child(5) {
+  animation-delay: 4s; /* Adjust the animation delay as needed */
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+/* social media icons end  */
+
+@media screen and (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+    background-color: #000;
+  }
+
+  nav {
+    padding-top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: black;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-top: 3rem;
+  }
+
+  nav ul li a {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .brand {
+    font-size: 4rem;
+  }
+
+  .overlay.menu-open,
+  nav.menu-open {
+    background-color: #000;
+  display: flex;
+  transform: scale(1);
+  opacity: 1;
+  z-index: 999; 
+  }
+}
+
+/* ... (Previous styles remain unchanged) ... */
+
+@media screen and (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+    background-color: #000;
+  }
+
+  nav {
+    padding-top: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: black;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin-top: 3rem;
+  }
+
+  nav ul li a {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .brand {
+    font-size: 4rem;
+  }
+
+  .overlay.menu-open,
+  nav.menu-open {
+    background-color: #000;
+    display: flex;
+    transform: scale(1);
+    opacity: 1;
+    z-index: 999; /* Ensure it's above other content */
+  }
+
+  .home-content {
+    top: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    transition: top 0.5s; /* Add a smooth transition */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-content {
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .home-content h1 {
+    font-size: 32px;
+  }
+
+  .home-content .Ai {
+    font-size: 24px;
+  }
+
+  .home-content p {
+    font-size: 16px;
+    margin-top: 2px;
+  }
+}
+
+.img {
+  text-align: right;
+  padding: 20px;
+  position: absolute;
+  top: 25%; /* Adjusted for mobile view */
+  right: 8%; /* Adjusted for better positioning */
+  width: 30%; /* Adjusted for better responsiveness */
+  transform: translateX(200rem);
+  animation: slideIn 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+
+.img img {
+  max-width: 80%; /* Use 100% to make the image responsive */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 29px;
+}
+
+@media screen and (max-width: 768px) {
+  .img {
+    /* transform: translateX(200rem); */
+    top: 75%; /* Adjust the top position for mobile view */
+    right: 30%; /* Adjust the right position for mobile view */
+    width: 50%; /* Adjust the width for mobile view */
+    transform: translateX(-50%, -50%);
+    animation: slideIn 0.5s forwards;
+    animation-delay: 2.5s;
+  }
+}
+
+/* Resetting some default margin and padding for consistency */
+
