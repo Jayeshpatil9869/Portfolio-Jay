@@ -741,13 +741,7 @@ div {
 
 
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  font-family: "Nunito", sans-serif;
-}
+
 
 html {
   scroll-behavior: smooth;
