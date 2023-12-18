@@ -22,11 +22,11 @@ html {
   height: 320vh;
   margin: 0;
   padding: 0;
-  background-color: var(--BG-color);
+  background-color: black;
   font-size: 10px;
 }
 canvas {
-  background-color: var(--BG-color);
+  background-color: #000;
   width: 100%;
   height: 100vh;
 }
@@ -75,7 +75,7 @@ nav {
 }
 /* Add this style for the scrolled state */
 nav.scrolled {
-  background-color: var(--Text-color);
+  background-color: rgb(255, 255, 255);
 }
 
 .brand {
@@ -149,6 +149,20 @@ nav ul li a::after {
   bottom: 0;
   transform-origin: right;
 }
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.95);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: opacity 650ms;
+  transform: scale(0);
+  opacity: 0;
+  display: none;
+}
+
 nav ul li a:hover::before,
 nav ul li a:hover::after {
   transform: scaleX(1);
@@ -504,7 +518,7 @@ div {
 }
 .social-button:focus,
 .social-button:hover {
-  color: var(--BG-color);
+  color: #000000;
   text-decoration: none;
 }
 .social-button:focus::after,
@@ -587,7 +601,7 @@ div {
 @media screen and (max-width: 700px) {
   .menu-toggle {
     display: block;
-    background-color: var(--BG-color);
+    background-color: #000;
   }
 
   nav {
@@ -598,7 +612,7 @@ div {
     align-items: center;
     height: 100vh;
     text-align: center;
-    background-color: var(--BG-color);
+    background-color: black;
   }
 
   nav ul {
@@ -620,7 +634,7 @@ div {
 
   .overlay.menu-open,
   nav.menu-open {
-    background-color: var(--BG-color);
+    background-color: #000;
   display: flex;
   transform: scale(1);
   opacity: 1;
@@ -633,7 +647,7 @@ div {
 @media screen and (max-width: 700px) {
   .menu-toggle {
     display: block;
-    background-color: var(--BG-color);
+    background-color: #000;
   }
 
   nav {
@@ -644,7 +658,7 @@ div {
     align-items: center;
     height: 100vh;
     text-align: center;
-    background-color: var(--BG-color);
+    background-color: black;
   }
 
   nav ul {
@@ -666,7 +680,7 @@ div {
 
   .overlay.menu-open,
   nav.menu-open {
-    background-color: var(--BG-color);
+    background-color: #000;
     display: flex;
     transform: scale(1);
     opacity: 1;
