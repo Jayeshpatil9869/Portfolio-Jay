@@ -421,7 +421,7 @@ btn.addEventListener('click', (event) => {
         const link = document.createElement('a');
 
         // Set the href attribute to the path of your PDF file
-        link.href = 'Jay-Cv.pdf';
+        link.href = 'Jay-Cv1.pdf';
 
         // Set the download attribute with the desired file name
         link.download = 'file.pdf';
