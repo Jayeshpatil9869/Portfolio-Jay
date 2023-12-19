@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function () {
       scrollDownLink.addEventListener('click', function (e) {
           e.preventDefault();
 
-          const destination = 725; // Change to your desired destination
+          const destination = 700; // Change to your desired destination
           const duration = 1000; // Change to your desired duration in milliseconds
 
           const start = window.pageYOffset;
@@ -369,3 +369,40 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
