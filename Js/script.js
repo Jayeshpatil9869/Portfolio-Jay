@@ -405,4 +405,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+const btn = document.querySelector('.btn');
 
+btn.addEventListener('click', (event) => {
+    // Prevent the default behavior of the anchor tag
+    event.preventDefault();
+
+    btn.classList.add('active');
+
+    // Simulate a download after a delay
+    setTimeout(() => {
+        btn.classList.remove('active');
+
+        // Create a link element
+        const link = document.createElement('a');
+
+        // Set the href attribute to the path of your PDF file
+        link.href = 'Jay-Cv.pdf';
+
+        // Set the download attribute with the desired file name
+        link.download = 'file.pdf';
+
+        // Append the link to the document
+        document.body.appendChild(link);
+
+        // Trigger a click on the link to start the download
+        link.click();
+
+        // Remove the link from the document
+        document.body.removeChild(link);
+    }, 13000);
+});
