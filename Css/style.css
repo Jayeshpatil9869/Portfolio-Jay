@@ -16,17 +16,20 @@
 
     --BG-color : black;
   }
+  body {
+    /* background-color:#000000; */
+    background-color: #2B2C2F;
+  }
 
   html {
     scroll-behavior: smooth;
     height: 320vh;
     margin: 0;
     padding: 0;
-    background-color: black;
     font-size: 10px;
   }
   canvas {
-    background-color: #000;
+    background-color: #2B2C2F;
     width: 100%;
     height: 100vh;
   }
@@ -51,7 +54,7 @@
 
 
   .menu-toggle {
-    position: fixed;
+    position: absolute;
     top: 2.5rem;
     right: 2.5rem;
     color: var(--Main-color);
@@ -793,10 +796,7 @@
 
 
 
-  body {
-    background-color: #000000;
-  }
-
+ 
   .orange {
     color: #FF7A01;
   }
@@ -1260,4 +1260,4 @@
       width: 95%;
       /* height: 50px; */
     }
-  }
+  } 
