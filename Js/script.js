@@ -374,24 +374,6 @@ btn.addEventListener("click", (event) => {
   }, 13000);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const aboutLinks = document.querySelectorAll('a[href^="#about-me"]');
   const skillsLinks = document.querySelectorAll('a[href^="#skills-section"]');
@@ -428,7 +410,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function animateScroll() {
       currentTime += increment;
-      const easedPosition = easeInOut(currentTime, currentPosition, distance, duration);
+      const easedPosition = easeInOut(
+        currentTime,
+        currentPosition,
+        distance,
+        duration
+      );
       window.scrollTo(0, easedPosition);
 
       if (currentTime < duration) {
