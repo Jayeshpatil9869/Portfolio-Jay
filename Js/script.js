@@ -308,133 +308,70 @@ var typed = new Typed(".text", {
   loop: true,
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const scrollDownLink = document.querySelector('.section-down-arrow');
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollDownLink = document.querySelector(".section-down-arrow");
 
   if (scrollDownLink) {
-      scrollDownLink.addEventListener('click', function (e) {
-          e.preventDefault();
+    scrollDownLink.addEventListener("click", function (e) {
+      e.preventDefault();
 
-          const destination = 700; // Change to your desired destination
-          const duration = 1000; // Change to your desired duration in milliseconds
+      const destination = 700; // Change to your desired destination
+      const duration = 1000; // Change to your desired duration in milliseconds
 
-          const start = window.pageYOffset;
-          const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+      const start = window.pageYOffset;
+      const startTime =
+        "now" in window.performance ? performance.now() : new Date().getTime();
 
-          function scroll() {
-              const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-              const progress = Math.min(1, (currentTime - startTime) / duration);
-              const newPosition = start + progress * (destination - start);
+      function scroll() {
+        const currentTime =
+          "now" in window.performance
+            ? performance.now()
+            : new Date().getTime();
+        const progress = Math.min(1, (currentTime - startTime) / duration);
+        const newPosition = start + progress * (destination - start);
 
-              window.scrollTo(0, newPosition);
+        window.scrollTo(0, newPosition);
 
-              if (progress < 1) {
-                  requestAnimationFrame(scroll);
-              }
-          }
+        if (progress < 1) {
+          requestAnimationFrame(scroll);
+        }
+      }
 
-          scroll();
-      });
+      scroll();
+    });
   }
 });
 
+const btn = document.querySelector(".btn");
 
+btn.addEventListener("click", (event) => {
+  // Prevent the default behavior of the anchor tag
+  event.preventDefault();
 
+  btn.classList.add("active");
 
+  // Simulate a download after a delay
+  setTimeout(() => {
+    btn.classList.remove("active");
 
+    // Create a link element
+    const link = document.createElement("a");
 
+    // Set the href attribute to the path of your PDF file
+    link.href = "Jay-Cv1.pdf";
 
+    // Set the download attribute with the desired file name
+    link.download = "Jayesh-Cv.pdf";
 
+    // Append the link to the document
+    document.body.appendChild(link);
 
+    // Trigger a click on the link to start the download
+    link.click();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const btn = document.querySelector('.btn');
-
-btn.addEventListener('click', (event) => {
-    // Prevent the default behavior of the anchor tag
-    event.preventDefault();
-
-    btn.classList.add('active');
-
-    // Simulate a download after a delay
-    setTimeout(() => {
-        btn.classList.remove('active');
-
-        // Create a link element
-        const link = document.createElement('a');
-
-        // Set the href attribute to the path of your PDF file
-        link.href = 'Jay-Cv1.pdf';
-
-        // Set the download attribute with the desired file name
-        link.download = 'file.pdf';
-
-        // Append the link to the document
-        document.body.appendChild(link);
-
-        // Trigger a click on the link to start the download
-        link.click();
-
-        // Remove the link from the document
-        document.body.removeChild(link);
-    }, 13000);
+    // Remove the link from the document
+    document.body.removeChild(link);
+  }, 13000);
 });
 
 
@@ -455,11 +392,58 @@ btn.addEventListener('click', (event) => {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutLinks = document.querySelectorAll('a[href^="#about-me"]');
+  const skillsLinks = document.querySelectorAll('a[href^="#skills-section"]');
+  const contactLinks = document.querySelectorAll('a[href^="#contact-section"]');
 
+  aboutLinks.forEach((aboutLink) => {
+    aboutLink.addEventListener("click", slowScrollToSection);
+  });
 
+  skillsLinks.forEach((skillsLink) => {
+    skillsLink.addEventListener("click", slowScrollToSection);
+  });
 
+  contactLinks.forEach((contactLink) => {
+    contactLink.addEventListener("click", slowScrollToSection);
+  });
 
+  function slowScrollToSection(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
 
+    if (targetElement) {
+      slowScrollTo(targetElement.offsetTop);
+    }
+  }
 
+  function slowScrollTo(targetPosition) {
+    const currentPosition = window.scrollY;
+    const distance = targetPosition - currentPosition;
+    const duration = 800; // Adjust the duration as needed
+    const increment = 20;
+    let currentTime = 0;
 
+    function animateScroll() {
+      currentTime += increment;
+      const easedPosition = easeInOut(currentTime, currentPosition, distance, duration);
+      window.scrollTo(0, easedPosition);
 
+      if (currentTime < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+
+    animateScroll();
+  }
+
+  // Easing function for a smooth scroll
+  function easeInOut(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
+  }
+});
