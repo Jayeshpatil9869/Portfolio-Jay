@@ -669,6 +669,7 @@ div {
 @media screen and (max-width: 700px) {
   .menu-toggle {
     display: block;
+    position: fixed;
     background-color: #000;
   }
 
@@ -704,6 +705,7 @@ div {
   nav.menu-open {
     background-color: #000;
     display: flex;
+    /* gap: 50px; */
     transform: scale(1);
     opacity: 1;
     z-index: 999; /* Ensure it's above other content */
@@ -715,6 +717,61 @@ div {
     transition: top 0.5s; /* Add a smooth transition */
   }
 }
+
+/* Add this style for small screens (e.g., mobile) */
+@media screen and (max-width: 768px) {
+/* 
+  .menu-toggle {
+    display: block;
+  } */
+
+  nav {
+    /* background-color: var(--BG-color); */
+    /* width: 100%; */
+    /* height: auto; */
+    /* padding: 1rem; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+
+  nav.scrolled {
+    background-color: var(--BG-color); /* Change the background color when scrolled */
+  }
+
+  nav ul li {
+    margin: 1rem 0;
+  }
+
+  nav ul li a::before,
+  nav ul li a::after {
+    height: 2px;
+    background-color: var(--Main-color);
+    transform: scaleY(0); /* Change scaleX to scaleY */
+  }
+
+  nav ul li a:hover::before,
+  nav ul li a:hover::after {
+    transform: scaleY(1); /* Change scaleX to scaleY */
+  }
+
+  .overlay {
+    display: block;
+  }
+
+  .container {
+    padding-top: 60px; /* Adjust padding to accommodate fixed navigation bar */
+  }
+}
+
 
 @media screen and (max-width: 768px) {
   .home-content {
@@ -1319,3 +1376,26 @@ transform: rotateZ(0deg);
     /* top: 18px; */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
